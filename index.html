@@ -1,527 +1,446 @@
 <!DOCTYPE html>
-<html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>SaaSpal - SaaS and Software Landing Page Template</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="assets/img/favicon.png"
-    />
-    <!-- Place favicon.ico in the root directory -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>ProcureOptima — Enterprise Procurement Performance</title>
+  <!-- Montserrat Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #3478C1;
+      --secondary: #265A91;
+      --accent: #F5A623;
+      --light-bg: #F9F9FA;
+      --footer-bg: #F0F0F5;
+      --text: #2B2B2B;
+      --white: #FFFFFF;
+      --radius: 8px;
+      --transition: 0.3s;
+      --max-width: 1200px;
+      --spacing: 1rem;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+    body { background: var(--light-bg); color: var(--text); line-height: 1.65; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing); }
+    /* Section Backgrounds */
+    .section-white { background: var(--white); color: var(--text); }
+    .section-gray  { background: var(--light-bg); color: var(--text); }
+    .section-secondary { background: var(--accent); color: var(--text); }
+    .section-primary   { background: var(--primary); color: var(--white); }
+    /* Header */
+    header { background: var(--white); text-align: center; padding: 5rem 0; border-bottom: 1px solid #e0e0e0; }
+    .logo { max-height: 150px; margin-bottom: 1.5rem; }
+    header h1 { font-size: 2.5rem; font-weight: 700; color: var(--secondary); margin-bottom: 2.5rem; }
+    header p { font-size: 1.125rem; max-width: 36rem; margin: 0 auto 2rem; }
+    .btn-primary { background: var(--accent); color: var(--text); padding: 0.75rem 2rem; font-weight: 600; border-radius: var(--radius); border: none; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: background var(--transition), transform var(--transition); display: inline-block; }
+    .btn-primary:hover { background: var(--secondary); color: var(--white); transform: translateY(-2px); }
+    /* Section Titles */
+    h3{ font-size: 1.25rem; font-weight: 300; margin-bottom: 4.5rem; }
+    section h2 { font-size: 2.5rem; font-weight: 600; color: var(--primary); text-align: center; margin-bottom: 1rem; }
+    .lead { font-size: 1rem; max-width: 40rem; margin: 0 auto 1.5rem; text-align: center; }
+    /* About */
+    .about { display: grid; gap: 2rem; padding: 2rem 0; }
+    .about p { font-size: 1rem; }
+    .about ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 1rem; }
+    .about li { position: relative; padding-left: 1.5rem; font-weight: 500; }
+    .about li::before { content: '✔'; position: absolute; left: 0; color: var(--accent); }
 
-    <!-- ======== CSS here ======== -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/lineicons.css" />
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-  </head>
-  <body>
-    <!--[if lte IE 9]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-        your experience and security.
-      </p>
-    <![endif]-->
+       /* About Flex Layout */
+       .about-flex { display: flex; align-items: center; gap: 2rem; padding: 2rem 0; }
+    .about-flex .about-image img { width: 100%; max-width: 400px; border-radius: var(--radius); }
+    .about-flex .about-text { flex: 1; }
+    .about-flex .about-text p { font-size: 1rem; }
 
-    <!-- ======== preloader start ======== -->
-    <div class="preloader">
-      <div class="loader">
-        <div class="spinner">
-          <div class="spinner-container">
-            <div class="spinner-rotator">
-              <div class="spinner-left">
-                <div class="spinner-circle"></div>
-              </div>
-              <div class="spinner-right">
-                <div class="spinner-circle"></div>
-              </div>
-            </div>
+    /* Carousel */
+    .carousel { position: relative; padding: 2rem 0; }
+    .carousel-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; gap: 1rem; padding: 1rem 0; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .client-item { scroll-snap-align: center; flex: 0 0 auto; width: 160px; height: 80px; background: var(--white); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-weight: 600; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: transform var(--transition); }
+    .client-item:hover { transform: translateY(-4px); }
+    .carousel-nav { position: absolute; top: 50%; transform: translateY(-50%); background: var(--secondary); width: 3rem; height: 3rem; border-radius: 50%; border: none; color: var(--white); display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0.85; transition: opacity var(--transition); }
+    .carousel-nav:hover { opacity: 1; }
+    .carousel-nav.prev { left: var(--spacing); }
+    .carousel-nav.next { right: var(--spacing); }
+    /* Features */
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 2rem; padding: 2rem 0; }
+    .feature { background: var(--white); border-radius: var(--radius); padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform var(--transition); }
+    .feature:hover { transform: translateY(-6px); }
+    .feature h3 { color: var(--accent); font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .feature p { color: var(--text); }
+    /* Testimonial */
+    .testimonial { text-align: center; padding: 4rem 0; }
+    .testimonial h2 { color: var(--text) !important; }
+    .testimonial blockquote { color: var(--text); font-size: 1.125rem; font-style: italic; max-width: 32rem; margin: 0 auto 1rem; background: none; }
+    .testimonial footer { color: var(--text); font-weight: 600; }
+    /* Case Study */
+    .case-study { text-align: center; padding: 4rem 0; }
+    .case-study h2 { color: var(--primary); }
+    .case-study p { font-size: 1rem; max-width: 32rem; margin: 0 auto 1.5rem; }
+    /* CTA */
+    .cta { text-align: center; padding: 5rem 0; }
+    .cta h2 { color: var(--white) !important; }
+    .cta p { font-size: 1rem; max-width: 36rem; margin: 0 auto 1.5rem; color: var(--white); }
+    /* Footer Base Styling */
+.footer {
+  background: #F0F0F5;
+  color: #2B2B2B;
+  padding-top: 2rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer a {
+  color: #3478C1;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Top Section (8:2:2 grid) */
+.footer-top .row {
+  align-items: flex-start;
+}
+.footer-about .sitename {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-left: 0.5rem;
+}
+.footer-tagline {
+  margin-top: 0.5rem;
+  max-width: 400px;
+}
+
+/* Logo Wrapper */
+.footer-logo-wrap {
+  display: inline-block;
+  max-width: 120px;
+  overflow: hidden;
+}
+.footer-logo-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Columns */
+.footer-links h4,
+.footer-contact h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  border-top: 1px solid #d1d1d1;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  font-size: 0.8rem;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 767px) {
+  .footer-top .footer-about,
+  .footer-top .footer-links,
+  .footer-top .footer-contact {
+    text-align: center;
+  }
+  .footer-logo-wrap {
+    margin: 0 auto 0.75rem;
+  }
+  .footer-about .d-flex {
+    justify-content: center;
+  }
+}
+
+    .section-secondary.testimonial {
+    padding: 0;
+    overflow: hidden;
+  }
+  .testimonial-carousel {
+    display: flex;
+    width: 100%;              /* 3 items × 100% each */
+    transition: transform 0.5s ease-in-out;
+  }
+  .testimonial-carousel .testimonial-item {
+    flex: 0 0 100%;           /* each item takes full viewport width */
+    box-sizing: border-box;
+    padding: 4rem 2rem;
+  }
+
+  .section-demo {
+  display: flex;
+  width: 100%;
+}
+.demo-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.demo-left,
+.demo-right {
+  flex: 1 1 50%;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+}
+.demo-left {
+  background: var(--primary);
+  color: var(--white);
+}
+.demo-right {
+  background: var(--secondary);
+  color: var(--white);
+}
+.demo-form label {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+.demo-form input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 2px solid var(--accent);
+  background: transparent;
+  color: var(--white);
+}
+.demo-form input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--text);
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+    /* Responsive */
+    @media (min-width: 768px) { header h1 { font-size: 3rem; } section h2 { font-size: 3rem; } }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header>
+    <div class="container">
+      <img src="procureoptimalogo.png" alt="ProcureOptima Logo" class="logo" />
+      <h1>Performance management tool for Procurement — No More Spreadsheets</h1>
+      <h3>Giving procurement teams greater accuracy, visibility and control in reporting their performance, and enabling leadership to centrally track the overall progress and results through highly interactive dashboards
+      </h3>
+      <button class="btn-primary">Book a Live Demo</button>
+    </div>
+  </header>
+
+    <!-- About Us -->
+    <section class="section-white">
+      <div class="container">
+        <div class="about-flex">
+          <div class="about-image">
+            <img src="about.png" alt="ProcureOptima Overview" />
+          </div>
+          <div class="about-text">
+            <h2>About Us</h2>
+            <p>We are on a mission to enable procurement and finance leadership teams to build high performance procurement organisations. ProcureOptima has been built by leveraging learnings from &gt;100 high impact procurement performance improvement programmes across a range of industries.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+  <!-- About -->
+  <section class="section-white">
+    <div class="container about">
+      <h2>Built on 100+ Transformation Programs</h2>
+      <p>ProcureOptima encapsulates industry best practices to deliver:</p>
+      <ul>
+        <li>Comprehensive KPI Tracking</li>
+        <li>Strategic Sourcing Pipeline</li>
+        <li>Supplier Performance & Risk Assessment</li>
+        <li>Contract Compliance Automation</li>
+        <li>Savings Realisation Dashboard</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- Clients 
+  <section class="section-gray">
+    <div class="container">
+      <h2>Trusted by Global Enterprises</h2>
+      <div class="carousel">
+        <button class="carousel-nav prev" aria-label="Previous Clients">&#10094;</button>
+        <div class="carousel-track">
+          <div class="client-item">L'Oréal</div>
+          <div class="client-item">Siemens</div>
+          <div class="client-item">Burberry</div>
+          <div class="client-item">ZF Group</div>
+          <div class="client-item">AstraZeneca</div>
+          <div class="client-item">Essity</div>
+          <div class="client-item">PepsiCo</div>
+        </div>
+        <button class="carousel-nav next" aria-label="Next Clients">&#10095;</button>
       </div>
     </div>
-    <!-- preloader end -->
+  </section>-->
 
-    <!-- ======== header start ======== -->
-    <header class="header">
-      <div class="navbar-area">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-12">
-              <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html">
-                  <img src="assets/img/logo/logo.svg" alt="Logo" />
-                </a>
-                <button
-                  class="navbar-toggler"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span class="toggler-icon"></span>
-                  <span class="toggler-icon"></span>
-                  <span class="toggler-icon"></span>
-                </button>
-
-                <div
-                  class="collapse navbar-collapse sub-menu-bar"
-                  id="navbarSupportedContent"
-                >
-                  <ul id="nav" class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                      <a class="page-scroll active" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="page-scroll" href="#features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="page-scroll" href="#about">About</a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a class="page-scroll" href="#why">Why</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="javascript:void(0)">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="javascript:void(0)">Clients</a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- navbar collapse -->
-              </nav>
-              <!-- navbar -->
-            </div>
-          </div>
-          <!-- row -->
-        </div>
-        <!-- container -->
+  <!-- Features -->
+  <section class="section-white">
+    <div class="container">
+      <h2>Core Capabilities</h2>
+      <div class="features">
+        <div class="feature"><h3>Real time collaboration and access</h3><p>No more version control issues of excel based processes, procurement teams can access the same  report simultaneously from anywhere, with real-time updates and changes.</p></div>
+        <div class="feature"><h3>Better insights with visualisation</h3><p>Giving teams advanced and interactive visual dashboards, enabling them to quickly zoom into the most important performance metrics.</p></div>
+        <div class="feature"><h3>Flexible</h3><p>Our system architecture is flexible, and we work together with client teams to adapt the system to their unique needs.</p></div>
+        <div class="feature"><h3>Scalable & Centralized Reporting</h3><p>Handling large data sets, scaling across teams, projects, and geographies while maintaining a single source of truth.</p></div>
+        <div class="feature"><h3>Security and Access Control</h3><p>Role-based permissions, and secure sharing ensure data integrity and compliance.</p></div>
       </div>
-      <!-- navbar area -->
-    </header>
-    <!-- ======== header end ======== -->
+    </div>
+  </section>
 
-    <!-- ======== hero-section start ======== -->
-    <section id="home" class="hero-section">
-      <div class="container">
-        <div class="row align-items-center position-relative">
-          <div class="col-lg-6">
-            <div class="hero-content">
-              <h1 class="wow fadeInUp" data-wow-delay=".4s">
-                Your using free lite version
-              </h1>
-              <p class="wow fadeInUp" data-wow-delay=".6s">
-                Please, purchase full version to get all sections, features and
-                permission to remove footer credit.
-              </p>
-              <a
-                href="javascript:void(0)"
-                class="main-btn border-btn btn-hover wow fadeInUp"
-                data-wow-delay=".6s"
-                >Purchase Now</a
-              >
-              <a href="#features" class="scroll-bottom">
-                <i class="lni lni-arrow-down"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="hero-img wow fadeInUp" data-wow-delay=".5s">
-              <img src="assets/img/hero/hero-img.png" alt="" />
-            </div>
-          </div>
-        </div>
+  <!-- Testimonial -->
+  <section class="section-secondary testimonial">
+    <div class="testimonial-carousel">
+      <div class="testimonial-item">
+        <blockquote>
+          “Implementing ProcureOptima has been a game-changer for our finance and procurement alignment. For the first time, we have real-time visibility into the pipeline of all sourcing initiatives and cost-saving opportunities—without waiting on fragmented reports. It’s enabled us to drive better budgeting accuracy, and significantly improved alignment on cost savings opportunities.”
+        </blockquote>
+        <footer>— Hitesh Kanakia, CFO, Sterling Freights</footer>
       </div>
-    </section>
-    <!-- ======== hero-section end ======== -->
-
-    <!-- ======== feature-section start ======== -->
-    <section id="features" class="feature-section pt-120">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-4 col-md-8 col-sm-10">
-            <div class="single-feature">
-              <div class="icon">
-                <i class="lni lni-bootstrap"></i>
-              </div>
-              <div class="content">
-                <h3>Bootstrap 5</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-8 col-sm-10">
-            <div class="single-feature">
-              <div class="icon">
-                <i class="lni lni-layout"></i>
-              </div>
-              <div class="content">
-                <h3>Clean Design</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-8 col-sm-10">
-            <div class="single-feature">
-              <div class="icon">
-                <i class="lni lni-coffee-cup"></i>
-              </div>
-              <div class="content">
-                <h3>Easy to Use</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="testimonial-item">
+        <blockquote>
+          “ProcureOptima gave our procurement team the structure and real-time reporting they needed, while allowing finance to track performance against budget with far more accuracy. We've cut unnecessary spend and now collaborate more effectively across departments. It’s streamlined our monthly close process and improved overall financial governance.”
+        </blockquote>
+        <footer>— Mark B, Finance Controller, Bajaj Financials</footer>
       </div>
-    </section>
-    <!-- ======== feature-section end ======== -->
-
-    <!-- ======== about-section start ======== -->
-    <section id="about" class="about-section pt-150">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-xl-6 col-lg-6">
-            <div class="about-img">
-              <img src="assets/img/about/about-1.png" alt="" class="w-100" />
-              <img
-                src="assets/img/about/about-left-shape.svg"
-                alt=""
-                class="shape shape-1"
-              />
-              <img
-                src="assets/img/about/left-dots.svg"
-                alt=""
-                class="shape shape-2"
-              />
-            </div>
-          </div>
-          <div class="col-xl-6 col-lg-6">
-            <div class="about-content">
-              <div class="section-title mb-30">
-                <h2 class="mb-25 wow fadeInUp" data-wow-delay=".2s">
-                  Perfect Solution Thriving Online Business
-                </h2>
-                <p class="wow fadeInUp" data-wow-delay=".4s">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  dinonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                  justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-                  sea takimata sanctus est Lorem.Lorem ipsum dolor sit amet.
-                </p>
-              </div>
-              <a
-                href="javascript:void(0)"
-                class="main-btn btn-hover border-btn wow fadeInUp"
-                data-wow-delay=".6s"
-                >Discover More</a
-              >
-            </div>
-          </div>
-        </div>
+      <div class="testimonial-item">
+        <blockquote>
+          “Before adopting the procurement performance tool, we were buried in Excel files, each team working off slightly different data and versions. Now, we operate from a single version of the truth. The interactive dashboard gives everyone—from buyers to executives—real-time insights into savings. It’s not just a reporting tool—it’s a visibility and alignment platform.”
+        </blockquote>
+        <footer>— N Rohit, Head of Procurement, Eternal Ltd.</footer>
       </div>
-    </section>
-    <!-- ======== about-section end ======== -->
+    </div>
+  </section>
+  
+  <script>
+    (function() {
+      const track = document.querySelector('.testimonial-carousel');
+      const totalItems = track.children.length;
+      let current = 0;
+      setInterval(() => {
+        current = (current + 1) % totalItems;
+        track.style.transform = `translateX(-${current * 100}%)`;
+      }, 5000); // change slide every 5 seconds
+    })();
+  </script>
 
-    <!-- ======== about2-section start ======== -->
-    <section id="about" class="about-section pt-150">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-xl-6 col-lg-6">
-            <div class="about-content">
-              <div class="section-title mb-30">
-                <h2 class="mb-25 wow fadeInUp" data-wow-delay=".2s">
-                  Easy to Use with Tons of Awesome Features
-                </h2>
-                <p class="wow fadeInUp" data-wow-delay=".4s">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
-                </p>
-              </div>
-              <ul>
-                <li>Quick Access</li>
-                <li>Easily to Manage</li>
-                <li>24/7 Support</li>
-              </ul>
-              <a
-                href="javascript:void(0)"
-                class="main-btn btn-hover border-btn wow fadeInUp"
-                data-wow-delay=".6s"
-                >Learn More</a
-              >
-            </div>
+<section class="section-demo">
+  <div class="container-full demo-flex">
+    <!-- Left column -->
+    <div class="demo-left">
+      <h2>Schedule a live demo</h2>
+      <p>In just 30 minutes, you'll gain a comprehensive understanding of the system and have the opportunity to address any questions you may have.</p>
+      <button class="btn-primary">Book a live demo</button>
+    </div>
+    <!-- Right column -->
+    <div class="demo-right">
+      <h2>Watch a demo</h2>
+      <p>Fill in the form and we'll send you a link to our 10-minute demo video</p>
+      <form class="demo-form">
+        <label>
+          First name:<br/>
+          <input type="text" name="firstName" />
+        </label>
+        <label>
+          Last name:<br/>
+          <input type="text" name="lastName" />
+        </label>
+        <label>
+          Company:<br/>
+          <input type="text" name="company" />
+        </label>
+        <label>
+          Email:<br/>
+          <input type="email" name="email" />
+        </label>
+        <label>
+          Phone:<br/>
+          <input type="tel" name="phone" />
+        </label>
+        <button class="btn-primary">Get access to the demo</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer id="footer" class="footer">
+  <div class="container footer-top">
+    <div class="row gy-4">
+
+      <!-- col 8 -->
+      <div class="col-lg-8 col-md-8 col-12 footer-about">
+        <a href="/" class="logo d-flex align-items-center">
+          <div class="footer-logo-wrap" style="max-width: 150px; overflow: hidden; margin-right: 1rem;">
+            <img src="procureoptimalogo.png" alt="ProcureOptima Logo" class="img-fluid" />
           </div>
-          <div class="col-xl-6 col-lg-6 order-first order-lg-last">
-            <div class="about-img-2">
-              <img src="assets/img/about/about-2.png" alt="" class="w-100" />
-              <img
-                src="assets/img/about/about-right-shape.svg"
-                alt=""
-                class="shape shape-1"
-              />
-              <img
-                src="assets/img/about/right-dots.svg"
-                alt=""
-                class="shape shape-2"
-              />
-            </div>
-          </div>
-        </div>
+        </a>
       </div>
-    </section>
-    <!-- ======== about2-section end ======== -->
 
-    <!-- ======== feature-section start ======== -->
-    <section id="why" class="feature-extended-section pt-100">
-      <div class="feature-extended-wrapper">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-xxl-5 col-xl-6 col-lg-8 col-md-9">
-              <div class="section-title text-center mb-60">
-                <h2 class="mb-25 wow fadeInUp" data-wow-delay=".2s">
-                  Why Choose SaaSpal
-                </h2>
-                <p class="wow fadeInUp" data-wow-delay=".4s">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-display"></i>
-                </div>
-                <div class="content">
-                  <h3>SaaS Focused</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-leaf"></i>
-                </div>
-                <div class="content">
-                  <h3>Awesome Design</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-grid-alt"></i>
-                </div>
-                <div class="content">
-                  <h3>Ready to Use</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-javascript"></i>
-                </div>
-                <div class="content">
-                  <h3>Vanilla JS</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-layers"></i>
-                </div>
-                <div class="content">
-                  <h3>Essential Sections</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single-feature-extended">
-                <div class="icon">
-                  <i class="lni lni-rocket"></i>
-                </div>
-                <div class="content">
-                  <h3>Highly Optimized</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- col 2 -->
+      <div class="col-lg-2 col-md-2 col-6 footer-links">
+        <h4>Location</h4>
+        <p>
+          6 Maplehurst Close<br />
+          Dartford, Kent<br />
+          DA2 7WX<br />
+          United Kingdom
+        </p>
       </div>
-    </section>
-    <!-- ======== feature-section end ======== -->
 
-    <!-- ======== subscribe-section start ======== -->
-    <section id="contact" class="subscribe-section pt-120">
-      <div class="container">
-        <div class="subscribe-wrapper img-bg">
-          <div class="row align-items-center">
-            <div class="col-xl-6 col-lg-7">
-              <div class="section-title mb-15">
-                <h2 class="text-white mb-25">Subscribe Our Newsletter</h2>
-                <p class="text-white pr-5">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor
-                </p>
-              </div>
-            </div>
-            <div class="col-xl-6 col-lg-5">
-              <form action="#" class="subscribe-form">
-                <input
-                  type="email"
-                  name="subs-email"
-                  id="subs-email"
-                  placeholder="Your Email"
-                />
-                <button type="submit" class="main-btn btn-hover">
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
+      <!-- col 2 -->
+      <div class="col-lg-2 col-md-2 col-6 footer-contact">
+        <h4>Contact</h4>
+        <p><strong>Phone:</strong> +44 20 3290 3256</p>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:sales@procureoptima.com">sales@procureoptima.com</a>
+        </p>
       </div>
-    </section>
-    <!-- ======== subscribe-section end ======== -->
 
-    <!-- ======== footer start ======== -->
-    <footer class="footer">
-      <div class="container">
-        <div class="widget-wrapper">
-          <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-6">
-              <div class="footer-widget">
-                <div class="logo mb-30">
-                  <a href="index.html">
-                    <img src="assets/img/logo/logo.svg" alt="" />
-                  </a>
-                </div>
-                <p class="desc mb-30 text-white">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  dinonumy eirmod tempor invidunt.
-                </p>
-                <ul class="socials">
-                  <li>
-                    <a href="jvascript:void(0)">
-                      <i class="lni lni-facebook-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="jvascript:void(0)">
-                      <i class="lni lni-twitter-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="jvascript:void(0)">
-                      <i class="lni lni-instagram-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="jvascript:void(0)">
-                      <i class="lni lni-linkedin-original"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+    </div>
+  </div>
 
-            <div class="col-xl-2 col-lg-2 col-md-6">
-              <div class="footer-widget">
-                <h3>About Us</h3>
-                <ul class="links">
-                  <li><a href="javascript:void(0)">Home</a></li>
-                  <li><a href="javascript:void(0)">Feature</a></li>
-                  <li><a href="javascript:void(0)">About</a></li>
-                  <li><a href="javascript:void(0)">Testimonials</a></li>
-                </ul>
-              </div>
-            </div>
+  <div class="container footer-bottom text-center">
+    <p>
+      &copy; 2025 ProcureOptima. All rights reserved.
+      <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+    </p>
+  </div>
+</footer>
 
-            <div class="col-xl-3 col-lg-3 col-md-6">
-              <div class="footer-widget">
-                <h3>Features</h3>
-                <ul class="links">
-                  <li><a href="javascript:void(0)">How it works</a></li>
-                  <li><a href="javascript:void(0)">Privacy policy</a></li>
-                  <li><a href="javascript:void(0)">Terms of service</a></li>
-                  <li><a href="javascript:void(0)">Refund policy</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-6">
-              <div class="footer-widget">
-                <h3>Other Products</h3>
-                <ul class="links">
-                  <li><a href="jvascript:void(0)">Accounting Software</a></li>
-                  <li><a href="jvascript:void(0)">Billing Software</a></li>
-                  <li><a href="jvascript:void(0)">Booking System</a></li>
-                  <li><a href="jvascript:void(0)">Tracking System</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- ======== footer end ======== -->
-
-    <!-- ======== scroll-top ======== -->
-    <a href="#" class="scroll-top btn-hover">
-      <i class="lni lni-chevron-up"></i>
-    </a>
-
-    <!-- ======== JS here ======== -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/main.js"></script>
-  </body>
+  <!-- Carousel Script -->
+  <script>
+    (function() {
+      const track = document.querySelector('.carousel-track');
+      const prev = document.querySelector('.carousel-nav.prev');
+      const next = document.querySelector('.carousel-nav.next');
+      const scrollAmount = track.offsetWidth * 0.6;
+      prev.addEventListener('click', () => track.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
+      next.addEventListener('click', () => track.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
+      track.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') next.click();
+        if (e.key === 'ArrowLeft') prev.click();
+      });
+    })();
+  </script>
+</body>
 </html>
